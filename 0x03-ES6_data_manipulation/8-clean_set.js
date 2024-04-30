@@ -1,7 +1,7 @@
 export default function cleanSet(setObj, startString) {
   let str = '';
 
-  if (startString === '') {
+  if (setObj.size === 0 || startString === '') {
     return str;
   }
 
