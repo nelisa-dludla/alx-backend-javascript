@@ -24,6 +24,13 @@ describe('calculateNumber test', function() {
 			assert.equal(expected, 4);
 		});
 	});
+	// a and b need to be rounded
+	describe('a and b need to be rounded (SUM)', function() {
+		it('should return 3', function() {
+			const expected = calculateNumber('SUM', 1.4 , 1.5);
+			assert.equal(expected, 3);
+		});
+	});
 	// SUBTRACT
 	// simple positive integers
 	describe('simple positive integers (SUBTRACT)', function() {
@@ -46,6 +53,13 @@ describe('calculateNumber test', function() {
 			assert.equal(expected, 0);
 		});
 	});
+	// a and b need to be rounded
+	describe('a and b need to be rounded (SUBTRACT)', function() {
+		it('should return 0', function() {
+			const expected = calculateNumber('SUBTRACT', 2.4, 1.5);
+			assert.equal(expected, 0);
+		});
+	});
 	// DIVIDE
 	// simple positive integers
 	describe('simple positive integers (DIVIDE)', function() {
@@ -65,6 +79,13 @@ describe('calculateNumber test', function() {
 	describe('b needs to be rounded (DIVIDE)', function() {
 		it('should return 4', function() {
 			const expected = calculateNumber('DIVIDE', 8, 1.5);
+			assert.equal(expected, 4);
+		});
+	});
+	// a and b need to be rounded
+	describe('a and b need to be rounded (DIVIDE)', function() {
+		it('should return 4', function() {
+			const expected = calculateNumber('DIVIDE', 7.5, 1.5);
 			assert.equal(expected, 4);
 		});
 	});
