@@ -6,4 +6,4 @@ const calculateNumber = (a, b) => {
 	return sum;
 };
 
-export default calculateNumber;
+module.exports = calculateNumber
