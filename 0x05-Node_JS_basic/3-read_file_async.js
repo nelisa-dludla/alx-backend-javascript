@@ -3,14 +3,14 @@ const fs = require('fs/promises');
 function countStudents(file) {
   return fs.readFile(file, 'utf-8')
     .then((data) => {
-      const rows = data.split('\n').filter(line => line.trim());
+      const rows = data.split('\n').filter((line) => line.trim());
 
       if (rows.length <= 1) {
         console.log('Number of students: 0');
         return;
       }
 
-      const header = rows.shift();
+      rows.shift();
       const numberOfStudents = rows.length;
       console.log(`Number of students: ${numberOfStudents}`);
 
@@ -29,8 +29,10 @@ function countStudents(file) {
 
       // Print string
       for (const field in fieldData) {
-        const listString = fieldData[field].join(', ');
-        console.log(`Number of students in ${field}: ${fieldData[field].length}. List: ${listString}`);
+        if (Object.prototype.hasOwnProperty.call(fieldData, field)) {
+          const listString = fieldData[field].join(', ');
+          console.log(`Number of students in ${field}: ${fieldData[field].length}. List: ${listString}`);
+        }
       }
     })
     .catch(() => {
